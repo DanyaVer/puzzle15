@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+var AllowFrontendAccessPolicy = "_AllowFrontendAccessPolicy";
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
+    options.AddPolicy(name: AllowFrontendAccessPolicy,
                       policy =>
                       {
                           policy
@@ -51,7 +51,7 @@ if (app.Environment.IsProduction())
     app.UseSwaggerUI();
 }
 
-app.UseCors(MyAllowSpecificOrigins);
+app.UseCors(AllowFrontendAccessPolicy);
 
 app.UseHttpsRedirection();
 

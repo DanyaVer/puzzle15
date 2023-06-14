@@ -68,7 +68,7 @@ export default {
     handleSave() {
       if (this.running)
         this.pauseHandler();
-      Save(this.login, this.password, this.time, this.field);
+      Save(this.login, this.password, this.time, this.field.slidesNumber, this.field.cells);
     },
     handleWin() {
       alert("You Win");
@@ -77,6 +77,7 @@ export default {
 
       clearInterval(this.interval);
     },
+    
     formatTime() {
         if (this.time / 100 >= 60) 
           return Math.floor(this.time / 6000) + ":" + this.time % 6000 / 100;

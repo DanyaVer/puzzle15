@@ -1,8 +1,8 @@
-import { serverUrl } from "./Consts.js";
+import { loadUrl } from "./Consts.js";
 import axios from "axios";
 
-export async function Load(login, password, field) {
-    const queryUrl = serverUrl + `/api/savings/${login}/${password}`;
+export async function Load(login, password) {
+    const queryUrl = loadUrl(login, password);
     console.log(queryUrl);
     const res = await axios
         .get(queryUrl)
