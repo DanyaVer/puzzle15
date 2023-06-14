@@ -1,6 +1,9 @@
 # puzzle15
 
-Puzzle 15 app
+Puzzle 15 application based on:
+  Vue.js as a frontend part
+  ASP.NET Web API as a server part
+  Azure MS SQL as a database part
 
 ## Server setup
 
@@ -8,7 +11,7 @@ install C# extension in Visual Studio Code
 OR
 run in Visual Studio folder 'server'
 
-## Server run
+### Server run
 
 in folder 'server' run
 
