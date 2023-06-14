@@ -5,6 +5,12 @@ Puzzle 15 application based on:
   1. ASP.NET Web API as a server part
   1. Azure MS SQL as a database part
 
+<p align="center">
+    <div> Start </div>
+    <img src="./public/puzzle-15-start-screen.png" width="80%">
+    <div> Running </div>
+    <img src="./public/puzzle-15-run-screen.png" width="80%">
+</p>
 ## Server setup
 
 install C# extension in Visual Studio Code
