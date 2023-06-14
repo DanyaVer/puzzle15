@@ -1,9 +1,9 @@
 # puzzle15
 
-Puzzle 15 application based on: <br/>
-  1) Vue.js as a frontend part <br/>
-  2) ASP.NET Web API as a server part <br/>
-  3) Azure MS SQL as a database part
+Puzzle 15 application based on:
+  1. Vue.js as a frontend part 
+  1. ASP.NET Web API as a server part
+  1. Azure MS SQL as a database part
 
 ## Server setup
 
