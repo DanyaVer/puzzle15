@@ -1,18 +1,25 @@
 <script>
-import { fieldFactory, randomizeField } from "./gameLogic/Field.js";
+import { fieldFactory, randomizeField, copyField } from "./gameLogic/Field.js";
 import { Load } from "./requests/Load.js";
 import { Save } from "./requests/Save.js";
 import GameField from "./components/GameField.vue";
+import Login from "./components/Login.vue";
 
 export default {
-  components: { GameField },
+  components: { GameField, Login },
   data() {
     return {
       field: [],
       running: false,
       started: false,
+      
       time: 0,
       interval: null,
+
+      login: "",
+      password: "",
+      validLogin: null,
+      validPassword: null,
     };
   },
   methods: {
@@ -36,19 +43,35 @@ export default {
       this.time++;
     },
 
-    handleLoad() {
+    onSubmit(event) {
+      if (event.submitter.__vnode.children === "Load")
+        this.handleLoad();
+      if (event.submitter.__vnode.children === "Save")
+        this.handleSave();
+    },
+
+    async handleLoad() {
       if (this.running)
         this.pauseHandler();
+      const res = await Load(this.login, this.password)
+      if (res === undefined) {
+        alert("non-existed save");
+        return;
+      }
 
-      Load("Danya", "d")
+      this.time = res.time;
+      copyField(this.field, res.field)
+      this.field.slidesNumber = res.slides;
+      
+      if (!this.running) {
+        this.started = true;
+        this.pauseHandler();
+      }
     },
     handleSave() {
-      if (this.running) {
-        clearInterval(this.interval);
-      } else {
-        this.interval = setInterval(this.incrementTimer, 10);
-      }
-      this.running = !this.running;
+      if (this.running)
+        this.pauseHandler();
+      Save(this.login, this.password, this.time, this.field);
     },
     handleWin() {
       alert("You Win");
@@ -77,6 +100,16 @@ export default {
     </div> 
   </header>
   <main class="main">
+    <div class="login-data">
+      <form @submit.prevent="onSubmit">
+        <input v-model="login" placeholder="Login.." required/>
+        <input v-model="password" type="password" placeholder="Password.." required/>
+        <div class="menu">
+          <button v-if="started" class="btn">Save</button>
+          <button class="btn">Load</button>
+        </div>
+      </form>
+    </div>
     <div class="game-data">
       <span>Time: {{ formatTime() }}</span>
       <span>Slides: {{ field.slidesNumber }}</span>
@@ -89,8 +122,6 @@ export default {
           <span v-if="running">Pause</span>
           <span v-else>Resume</span>
         </button>
-        <button v-if="started" @click="handleSave" class="btn">Save</button>
-        <button @click="handleLoad" class="btn">Load</button>
       </div>
     </div>
   </main>
@@ -110,12 +141,26 @@ main {
   justify-content: center;
   align-items: center;
 }
+.login-data {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+input {
+  width: 100%;
+  margin: 5px;
+  font-size: 20px;
+}
 .game-data {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   width: 80%;
   margin-left: 10%;
+  margin-right: 10%;
 }
 .game {
   display: flex;

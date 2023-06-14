@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+[EnableCors("_myAllowSpecificOrigins")]
 [Route("api/savings/")]
 [ApiController]
 public class SavingsController : ControllerBase
@@ -29,7 +31,7 @@ public class SavingsController : ControllerBase
     }
 
     // GET: api/savings
-    [HttpGet("{login},{password}")]
+    [HttpGet("{login}/{password}")]
     public async Task<ActionResult<Saving>> GetSaving(string login, string password)
     {
         if (_context.Savings == null)

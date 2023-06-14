@@ -24,6 +24,17 @@ function randomizeField(field) {
     field.slidesNumber = 0;
 }
 
+function copyField(field, fieldCopy) {
+    field.size = Math.floor(Math.sqrt(fieldCopy.length));
+    field.cells = fieldCopy;
+    for (let i = 0; i < field.cells.length; i++) {
+        if (field.cells[i] === 0) {
+            field.emptyCell = i;
+            return;
+        }
+    }
+}
+
 // a function that checks if the field is solved
 function checkFieldState(field) {
     if (field.length === 0)
@@ -38,5 +49,6 @@ function checkFieldState(field) {
 export {
     fieldFactory,
     randomizeField,
+    copyField,
     checkFieldState,
 };

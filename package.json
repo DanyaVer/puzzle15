@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "gitart-vue-dialog": "^3.1.0",
     "usemodal-vue3": "^0.3.7",
     "vue": "^3.3.2",
     "vue-axios": "^3.5.2"

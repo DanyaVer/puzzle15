@@ -1,6 +1,6 @@
 <script>
 import { moveCell } from "../gameLogic/CellMoving";
-import { checkFieldState } from "../gameLogic/Field"
+import { checkFieldState } from "../gameLogic/Field";
 export default {
   props: ["field", "running"],
 
@@ -8,6 +8,7 @@ export default {
     moveCell,
 
     cellClick(index, field) {
+      console.log(this.running);
       if (this.running) {
         this.moveCell(index, field);
         if (checkFieldState(field)) this.$emit("win");

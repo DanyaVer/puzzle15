@@ -1,10 +1,10 @@
 import { serverUrl } from "./Consts.js";
 import axios from "axios";
 
-async function Save(login, password, field) {
+export async function Save(login, password, time, field) {
     const queryUrl = serverUrl + "/api/savings";
     console.log(queryUrl);
-    let params = { login: login, password: password, time: field.time, slides: field.slides, field: field.field.join(',') };
+    let params = { login: login, password: password, time: time, slides: field.slidesNumber, field: field.cells.join(',') };
     axios
         .post(queryUrl, params)
         .then((response) => {
@@ -16,5 +16,3 @@ async function Save(login, password, field) {
             return false;
         });
 }
-
-export { Save }
