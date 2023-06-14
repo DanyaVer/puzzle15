@@ -19,14 +19,12 @@ function swapCell(field, movingCell) {
 
 // these functions shift the field
 function moveLeft(field) {
-  console.log("left");
   const movingCell = field.emptyCell + 1;
   const willMove = canMoveLeft(movingCell, field.size);
   if (willMove) swapCell(field, movingCell);
   return willMove;
 }
 function moveRight(field) {
-  console.log("right");
   const movingCell = field.emptyCell - 1;
 
   const willMove = canMoveRight(movingCell, field.size);
@@ -34,14 +32,12 @@ function moveRight(field) {
   return willMove;
 }
 function moveDown(field) {
-  console.log("down");
   const movingCell = field.emptyCell - field.size;
   const willMove = canMoveDown(movingCell, field.size);
   if (willMove) swapCell(field, movingCell);
   return willMove;
 }
 function moveUp(field) {
-  console.log("up");
   const movingCell = field.emptyCell + field.size;
   const willMove = canMoveUp(movingCell, field.size);
   if (willMove) swapCell(field, movingCell);

@@ -8,7 +8,6 @@ export default {
     moveCell,
 
     cellClick(index, field) {
-      console.log(this.running);
       if (this.running) {
         this.moveCell(index, field);
         if (checkFieldState(field)) this.$emit("win");
