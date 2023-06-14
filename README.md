@@ -9,10 +9,11 @@ Puzzle 15 application based on:
 
 <p align-items="center">
     <div> Start </div>
-    <img src="./public/puzzle-15-start-screen.png" width="80%">
+    <img src="./public/puzzle-15-start-screen.png" >
     <div> Running </div>
-    <img src="./public/puzzle-15-run-screen.png" width="80%">
+    <img src="./public/puzzle-15-run-screen.png" >
 </p>
+
 ## Server setup
 
 install C# extension in Visual Studio Code
