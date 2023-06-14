@@ -3,10 +3,9 @@ import { fieldFactory, randomizeField, copyField } from "./gameLogic/Field.js";
 import { Load } from "./requests/Load.js";
 import { Save } from "./requests/Save.js";
 import GameField from "./components/GameField.vue";
-import Login from "./components/Login.vue";
 
 export default {
-  components: { GameField, Login },
+  components: { GameField },
   data() {
     return {
       field: [],
@@ -18,8 +17,6 @@ export default {
 
       login: "",
       password: "",
-      validLogin: null,
-      validPassword: null,
     };
   },
   methods: {

@@ -1,14 +1,22 @@
 # puzzle15
 
-This template should help get you started developing with Vue 3 in Vite.
+Puzzle 15 app
 
-## Recommended IDE Setup
+## Server setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+install C# extension in Visual Studio Code
+OR
+run in Visual Studio folder 'server'
 
-## Customize configuration
+## Server run
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+in folder 'server' run
+
+```sh
+dotnet run
+```
+
+
 
 ## Project Setup
 
